@@ -1,9 +1,21 @@
-export default fetch('./data.json').then((res) =>{
-    return res.json();
+// import { handleAddToCart } from "./script.js";
+import main from "./main.js";
 
-}).then(data => {
+ fetch('./data.json').then( res =>{
 
- for(let i=1;i<=data.length;i++) {
+
+       return res.json();
+
+    }).then(data => {
+
+        renderData(data);
+        main();
+
+    })
+
+ function renderData(data){
+
+    for(let i=1;i<=data.length;i++) {
         
         const cart=document.createElement("div");
         cart.classList.add("cart");
@@ -99,9 +111,13 @@ export default fetch('./data.json').then((res) =>{
             document.querySelector(".carts-container").appendChild(cart);
             //  main.appendChild(cart);
 
- 
+
+
+
+
+
     }
 
 
 
-});
+}

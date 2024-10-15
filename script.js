@@ -1,15 +1,15 @@
 
-//  import fetchData from "./fetch-data";
+//  import {fetchData,renderData} from "./fetchData.js";
 import { getLastChar } from "./helper-mothed.js";
 import { addItemToYourList } from "./yourCart.js";
- const addToCart=document.querySelectorAll(".addToCart");
+ 
+export function handleAddToCart(){
 
- addToCart.forEach(element => {
+const addToCart=document.querySelectorAll(".addToCart");
 
-
+  addToCart.forEach(element => {
     element.addEventListener('click',e => {
         if(e.target){
-
             const curId=getLastChar(element.getAttribute("id"));
 
                 addItemToYourList(curId);
@@ -34,7 +34,10 @@ import { addItemToYourList } from "./yourCart.js";
 })
 
 
+}
 
+
+export function handleIncrement(){
   document.querySelectorAll(".increment").forEach(button => {
 
     button.addEventListener("click", e => {
@@ -58,9 +61,12 @@ import { addItemToYourList } from "./yourCart.js";
 
 });
  
+}
+
 
 // // the Decrement 
 
+ export function handleDecrement(){
     document.querySelectorAll(".decrement").forEach(button => {
     
         button.addEventListener("click", e => {
@@ -91,7 +97,7 @@ import { addItemToYourList } from "./yourCart.js";
             });
     });
      
-
+}
       
    function displayAddToCart(curId){
 
